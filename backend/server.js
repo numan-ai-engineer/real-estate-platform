@@ -1,23 +1,25 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
-// Routes
-const propertyRoutes = require('./routes/propertyRoutes');
-app.use('/api/properties', propertyRoutes);
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB Connected"))
+  .catch((err) => console.log(err));
 
-mongoose.connect('mongodb://127.0.0.1:27017/realestate')
-.then(() => console.log("MongoDB connected"))
-.catch(err => console.log(err));
-
-app.get('/', (req, res) => {
-  res.send("Backend is running successfully 🚀");
+app.get("/", (req, res) => {
+  res.send("Backend is running...");
 });
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+app.use("/api/properties", require("./routes/propertyRoutes"));
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
