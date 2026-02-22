@@ -131,11 +131,11 @@ npm start
 
 ## 👨‍💻 Author
 
-**Waqar Ali**  
+**numan-ai-engineer**  
 Full Stack Developer | Future AI Engineer  
 
-- GitHub: https://github.com/your-username
-- LinkedIn: (Add your LinkedIn link)
+- GitHub: https://github.com/numan-ai-engineer
+- LinkedIn: (www.linkedin.com/in/numan-ishaq-7b0008248)
 
 ---
 
